@@ -5,11 +5,21 @@ spring:
   application:
     name: msvc-gateway
   cloud:
-    discovery:
-      locator:
-        enabled: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
       routes:
       - id: paciente
-      uri: http://localhost:8090
-      predicates:
-        - Path=/api/v1/pacientes/**
+        uri: http://localhost:8090
+        predicates:
+          - Path=/api/v1/pacientes/**
+      - id: atenciones
+        uri: http://localhost:9090
+        predicates:
+          - Path=/api/v1/atenciones/**
+
+eureka:
+  cliente:
+    register-with-eureka: false
+    fetch-registry: false
