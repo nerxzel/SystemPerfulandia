@@ -1,11 +1,7 @@
 package com.TecnoTrans.SystemPerfulandia.microservicio_perfume.Model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,16 +19,18 @@ public class Perfume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
+    @NotBlank(message = "El nombre del producto es obligatorio.")
     private String name;
     
-    @Column(name = "STOCK")
+    @Column(name = "STOCK", nullable = false)
     private int stock;
     
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", nullable = false)
     private float price;
     
-    @Column(name = "BRAND")
+    @Column(name = "BRAND", nullable = false)
+    @NotBlank(message = "El producto debe estar asociado a una marca")
     private String brand;
 
 }
