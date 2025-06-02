@@ -57,6 +57,7 @@
     <module>microservicio-eureka</module>
     <module>microservicio-config</module>
     <module>microservicio-gateway</module>
+    <module>microservicio-perfume</module>
   </modules>
 
   <build>
